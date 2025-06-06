@@ -8,7 +8,7 @@ async def post(client: httpx.AsyncClient, url, payload):
     #print(response.status_code, response.json())
 
 async def main():
-    with open('C:\\Users\\user\\Desktop\\python\\test\\test_data.csv', encoding='utf-8') as file:
+    with open('test\\test_data.csv', encoding='utf-8') as file:
         data_list = csv.DictReader(file, delimiter=',')
         data_list = list(data_list)
     url = "http://127.0.0.1:8000/upload_data"
