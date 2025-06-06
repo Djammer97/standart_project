@@ -1,17 +1,19 @@
 from fastapi import FastAPI
 
-from .application.models import ModelData
+from service.application.models import ModelData
 
 import catboost
 import asyncio
+import os
 
 from concurrent.futures import ThreadPoolExecutor
 
-from .application.pick_regno import pick_regno
+from service.application.pick_regno import pick_regno
 
 app = FastAPI()
 model = catboost.CatBoostClassifier()
-model.load_model('service\\micromodel.cbm')
+path = os.path.join('service', 'micromodel.cbm')
+model.load_model(path)
 
 executor = ThreadPoolExecutor(max_workers=8)
 

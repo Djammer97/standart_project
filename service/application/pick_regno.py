@@ -50,7 +50,7 @@ def str_to_list(s):
         return [0]
 
 def pick_regno(camera_regno, nn_regno, camera_score, nn_score, nn_sym_scores, nn_len_scores, camera_type, camera_class, 
-         time_check, direction, model_name):
+         time_check, direction, model):
     # model_name - path to the model
 
     x = {}
@@ -93,7 +93,7 @@ def pick_regno(camera_regno, nn_regno, camera_score, nn_score, nn_sym_scores, nn
     #model.load_model(model_name)
     #y = model.predict_proba(pd.Series(x)[model.feature_names_])
 
-    y = model_name.predict_proba(pd.Series(x)[model_name.feature_names_])
+    y = model.predict_proba(pd.Series(x)[model.feature_names_])
     
     return y
 
