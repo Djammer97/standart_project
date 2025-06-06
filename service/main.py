@@ -1,14 +1,14 @@
-from fastapi import FastAPI
-
-from service.application.models import ModelData
-
 import catboost
 import asyncio
 import os
 
+from fastapi import FastAPI
+
+from service.application.models import ModelData
+from service.application.pick_regno import pick_regno
+
 from concurrent.futures import ThreadPoolExecutor
 
-from service.application.pick_regno import pick_regno
 
 app = FastAPI()
 model = catboost.CatBoostClassifier()
